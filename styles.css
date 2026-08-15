@@ -27,6 +27,31 @@
   --radius-sm: 8px;
 }
 
+/* Dark tokens live in a mixin-style list applied from two places: the OS
+   preference (unless the visitor explicitly chose light) and the toggle. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink:            #e8eef4;
+    --ink-soft:       #a9b7c4;
+    --ink-faint:      #7d8b98;
+    --bg:             #0d151d;
+    --bg-alt:         #121c26;
+    --bg-raise:       #16212c;
+    --line:           #24323f;
+    --line-soft:      #1c2833;
+    --accent:         #7fb3dd;
+    --accent-soft:    #1a2a38;
+    --gold:           #e2b46b;
+    --gold-soft:      #2a2317;
+    --shadow-sm:      0 1px 2px rgba(0, 0, 0, .3);
+    --shadow-md:      0 2px 4px rgba(0, 0, 0, .3), 0 12px 28px rgba(0, 0, 0, .35);
+  }
+  :root:not([data-theme="light"]) .brand-mark,
+  :root:not([data-theme="light"]) .btn-primary { color: #0d151d; }
+  :root:not([data-theme="light"]) .ico-sun { display: none; }
+  :root:not([data-theme="light"]) .ico-moon { display: block; }
+}
+
 :root[data-theme="dark"] {
   --ink:            #e8eef4;
   --ink-soft:       #a9b7c4;
@@ -232,10 +257,6 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 .section-alt { background: var(--bg-alt); border-block: 1px solid var(--line-soft); }
 
 .section-head { margin-bottom: clamp(2rem, 4vw, 3rem); max-width: 60ch; }
-.section-index {
-  display: block; font-family: var(--serif); font-size: .9rem;
-  color: var(--gold); letter-spacing: .1em; margin-bottom: .5rem;
-}
 .section-head h2 {
   font-family: var(--serif); font-weight: 500;
   font-size: clamp(1.7rem, 4vw, 2.4rem); letter-spacing: -.02em;
@@ -416,7 +437,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 
   html, body { background: #fff !important; color: #000; font-size: 10.5pt; line-height: 1.42; }
 
-  .topbar, .skip-link, .hero-cta, .section-index, .section-sub,
+  .topbar, .skip-link, .hero-cta, .section-sub,
   .scroll-progress, .badge, .footer-note { display: none !important; }
 
   .wrap { width: 100%; }
