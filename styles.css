@@ -264,9 +264,10 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 .section-sub { margin-top: .6rem; color: var(--ink-faint); font-size: .98rem; }
 
 /* ---------- Competencies ---------- */
+/* Three across at full width, so the nine cards fill complete rows. */
 .comp-grid {
   display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .comp {
   background: var(--bg-raise); border: 1px solid var(--line);
@@ -503,7 +504,10 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     border-bottom: 1.2pt solid #000; padding-bottom: .12rem; margin-top: .5rem;
   }
 
-  .comp-grid { display: block; column-count: 2; column-gap: 1.5rem; }
+  /* Single column on purpose: Chromium won't fragment a multi-column block
+     across pages, so a 2-up grid here gets pushed whole and strands most of
+     a page. Flowing as one list costs a few lines and saves a page. */
+  .comp-grid { display: block; }
   .comp {
     border: 0; padding: 0 0 .3rem; break-inside: avoid;
     display: list-item; list-style: disc; margin-left: 1rem;
