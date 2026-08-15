@@ -469,7 +469,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   .name span::before { content: " "; }
   .role { font-size: 11pt; margin-bottom: .35rem; }
   .eyebrow { color: #444; font-size: 8.5pt; margin-bottom: .35rem; }
-  .eyebrow::after { content: "  ·  elyver0810@gmail.com  ·  0995 480 3594"; }
+  .eyebrow::after { content: "  ·  elyver0810@gmail.com"; }
   .lede { max-width: none; font-size: 10pt; }
   .hero-stats { display: none; }
 
