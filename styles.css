@@ -294,6 +294,28 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 .tags li:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
 .tags em { color: var(--ink-faint); font-style: normal; font-size: .92em; }
 
+/* ---------- Additional capabilities ---------- */
+/* Deliberately quieter than the accounting sections: this is supporting
+   range, and it must not pull focus from the ledger work above it. */
+.extra-role {
+  display: inline-flex; align-items: baseline; flex-wrap: wrap; gap: .3rem .7rem;
+  padding: .6rem 1rem; margin-bottom: 2rem;
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--bg-raise);
+}
+.extra-role-label {
+  font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  font-weight: 700; color: var(--gold);
+}
+.extra-role-name { font-size: .95rem; font-weight: 600; color: var(--ink); }
+
+.skills-quiet .skill-block h3 { color: var(--ink-faint); }
+.skills-quiet .tags li {
+  background: transparent; color: var(--ink-soft);
+  border-color: var(--line-soft); font-size: .82rem;
+}
+.skills-quiet .tags li:hover { border-color: var(--ink-faint); color: var(--ink); }
+
 /* ---------- Timeline ---------- */
 .timeline { position: relative; display: grid; gap: 2.5rem; }
 .timeline::before {
@@ -450,7 +472,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     --shadow-sm: none; --shadow-md: none;
   }
 
-  @page { margin: 14mm 14mm; }
+  @page { margin: 11mm 12mm; }
 
   html, body { background: #fff !important; color: #000; font-size: 10.5pt; line-height: 1.42; }
 
@@ -492,6 +514,11 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 
   .skills-grid { display: block; }
   .skill-block { margin-bottom: .35rem; break-inside: avoid; }
+  .extra-role { border: 0; padding: 0; margin-bottom: .2rem; display: block; }
+  .extra-role-label { color: #000; font-size: 9.5pt; }
+  .extra-role-label::after { content: ":"; }
+  .extra-role-name { font-size: 10pt; }
+  .skills-quiet .tags li { font-size: 10pt; color: #111; }
   .skill-block h3 { border: 0; padding: 0; margin-bottom: .1rem; font-size: 9.5pt; color: #000; }
   .tags { display: block; }
   .tags li {
