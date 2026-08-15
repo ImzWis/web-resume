@@ -324,7 +324,24 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 
 .job-body { padding-left: 2.25rem; }
 .job-title { font-size: 1.18rem; letter-spacing: -.015em; }
-.job-org { color: var(--accent); font-weight: 550; font-size: .95rem; margin-top: .2rem; margin-bottom: 1rem; }
+.job-org { color: var(--accent); font-weight: 550; font-size: .95rem; margin-top: .2rem; margin-bottom: 1.15rem; }
+
+/* Positions held within one employer. */
+.roles { display: grid; gap: 1.4rem; }
+.role-item + .role-item { border-top: 1px dashed var(--line); padding-top: 1.4rem; }
+.role-head {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  gap: .25rem .75rem; margin-bottom: .65rem;
+}
+.role-title { font-size: 1rem; font-weight: 600; }
+.role-dates {
+  font-size: .78rem; color: var(--ink-faint); font-weight: 550;
+  font-variant-numeric: tabular-nums; letter-spacing: .01em;
+}
+/* When an employer has a single role, its dates already appear on the
+   company line — don't repeat them. Browsers without :has() simply show
+   both, which is redundant but not broken. */
+.roles:not(:has(> .role-item + .role-item)) .role-dates { display: none; }
 
 .bullets { display: grid; gap: .6rem; }
 .bullets li {
@@ -452,7 +469,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   .name span::before { content: " "; }
   .role { font-size: 11pt; margin-bottom: .35rem; }
   .eyebrow { color: #444; font-size: 8.5pt; margin-bottom: .35rem; }
-  .eyebrow::after { content: "  ·  elyver0810@gmail.com"; }
+  .eyebrow::after { content: "  ·  elyver0810@gmail.com  ·  0995 480 3594"; }
   .lede { max-width: none; font-size: 10pt; }
   .hero-stats { display: none; }
 
@@ -491,7 +508,14 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   .job-dates { float: right; font-size: 9.5pt; color: #000; }
   .job-body { padding-left: 0; border: 0; }
   .job-title { font-size: 11pt; break-after: avoid; }
-  .job-org { color: #000; font-style: italic; margin-bottom: .25rem; font-size: 10pt; break-after: avoid; }
+  .job-org { color: #000; font-style: italic; margin-bottom: .2rem; font-size: 9.5pt; break-after: avoid; }
+
+  .roles { display: block; }
+  .role-item { margin-bottom: .3rem; }
+  .role-item + .role-item { border-top: 0; padding-top: .2rem; }
+  .role-head { display: block; margin-bottom: .1rem; break-after: avoid; }
+  .role-title { display: inline; font-size: 10pt; }
+  .role-dates { float: right; font-size: 9pt; color: #333; }
   .bullets { display: block; }
   .bullets li { color: #111; font-size: 9.8pt; margin-bottom: .1rem; padding-left: .9rem; break-inside: avoid; }
   .bullets li::before { background: #000; width: 3.5px; height: 3.5px; top: .58em; }

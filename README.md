@@ -43,9 +43,17 @@ python3 -m http.server 8000
 All resume text lives in `index.html` — edit it directly. The main sections are marked with
 comment banners (`<!-- ====== EXPERIENCE ====== -->`, etc.).
 
-To add a role, copy an existing `<li class="job">` block inside `<ol class="timeline">`. The
-`badge-current` span marks the present role, and the first job in the list automatically gets
-the highlighted gold timeline dot.
+The experience timeline is grouped by employer, not by position. Each `<li class="job">` is one
+organization — its `job-dates` span is the overall tenure, `job-title` is the company, and
+`job-org` is the engagement type ("Freelance", "Full-time · North America Team"). Inside it,
+`<ol class="roles">` holds one `<li class="role-item">` per position held there.
+
+- To add an **employer**, copy a whole `<li class="job">` block and keep the list in reverse
+  chronological order. The first entry automatically gets the highlighted gold timeline dot.
+- To add a **position** at an existing employer, copy a `<li class="role-item">` block. Where an
+  employer has only one position, its `role-dates` are hidden automatically (they would just
+  repeat the company tenure); adding a second position reveals both sets of dates.
+- The `badge-current` span marks the present role.
 
 The four hero stat tiles are in `<aside class="hero-stats">`. Tiles with a `data-count`
 attribute animate by counting up to that number on scroll; tiles without it render their text
